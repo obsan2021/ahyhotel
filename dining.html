@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahy Hotel - Culinary Excellence</title>
+    <meta name="description" content="Experience world-class dining at Ahy Hotel's signature restaurants">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            padding: 4rem 0;
+        }
+        
+        .restaurant-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .restaurant-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .restaurant-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .restaurant-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .restaurant-card:hover .restaurant-image img {
+            transform: scale(1.1);
+        }
+        
+        .restaurant-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .restaurant-info {
+            padding: 2rem;
+        }
+        
+        .restaurant-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .restaurant-cuisine {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        
+        .restaurant-hours {
+            margin: 1rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+        
+        .menu-highlight {
+            margin-top: 1rem;
+        }
+        
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .chef-special {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .restaurant-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">AHY HOTEL</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="dining.html" class="active">Dining</a></li>
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <a href="booking.html" class="btn">Book Now →</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Culinary Excellence</h1>
+            <p>Experience gastronomic masterpieces crafted by world-renowned chefs</p>
+        </section>
+
+        <div class="container">
+            <div class="restaurant-grid reveal">
+                <div class="restaurant-card">
+                    <div class="restaurant-image">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600" alt="Fine Dining Restaurant">
+                        <div class="restaurant-badge">Michelin Starred</div>
+                    </div>
+                    <div class="restaurant-info">
+                        <h3>Ambrosia</h3>
+                        <div class="restaurant-cuisine">French Contemporary</div>
+                        <p>Experience the pinnacle of French gastronomy with a modern twist. Each dish is a work of art, crafted with the finest ingredients from around the world.</p>
+                        <div class="restaurant-hours">
+                            🕒 Dinner: 6:00 PM - 11:00 PM<br>
+                            👔 Dress Code: Formal Attire Required
+                        </div>
+                        <div class="menu-highlight">
+                            <div class="menu-item"><strong>Signature Dish</strong> <span>Duck à l'Orange</span></div>
+                            <div class="menu-item"><strong>Sommelier's Pick</strong> <span>Château Margaux 2015</span></div>
+                        </div>
+                        <div class="chef-special">
+                            👨‍🍳 Chef's Tasting Menu - $250 per person
+                        </div>
+                    </div>
+                </div>
+
+                <div class="restaurant-card">
+                    <div class="restaurant-image">
+                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=600" alt="Asian Fusion">
+                        <div class="restaurant-badge">Award Winning</div>
+                    </div>
+                    <div class="restaurant-info">
+                        <h3>Zenith</h3>
+                        <div class="restaurant-cuisine">Asian Fusion</div>
+                        <p>Where East meets West in perfect harmony. Experience innovative Asian cuisine with a contemporary flair.</p>
+                        <div class="restaurant-hours">
+                            🕒 Lunch: 12:00 PM - 3:00 PM<br>
+                            🕒 Dinner: 6:30 PM - 10:30 PM
+                        </div>
+                        <div class="menu-highlight">
+                            <div class="menu-item"><strong>Signature Sushi</strong> <span>Omakase Experience</span></div>
+                            <div class="menu-item"><strong>Sake Selection</strong> <span>Dassai 23</span></div>
+                        </div>
+                        <div class="chef-special">
+                            🍣 Omakase Tasting - $180 per person
+                        </div>
+                    </div>
+                </div>
+
+                <div class="restaurant-card">
+                    <div class="restaurant-image">
+                        <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600" alt="Mediterranean">
+                        <div class="restaurant-badge">Best View</div>
+                    </div>
+                    <div class="restaurant-info">
+                        <h3>Azure Terrace</h3>
+                        <div class="restaurant-cuisine">Mediterranean</div>
+                        <p>Dine under the stars with breathtaking city views. Fresh Mediterranean cuisine celebrating coastal flavors.</p>
+                        <div class="restaurant-hours">
+                            🕒 Breakfast: 7:00 AM - 10:30 AM<br>
+                            🕒 Dinner: 7:00 PM - 11:00 PM
+                        </div>
+                        <div class="menu-highlight">
+                            <div class="menu-item"><strong>Seafood Paella</strong> <span>Market Price</span></div>
+                            <div class="menu-item"><strong>Sundowner Cocktails</strong> <span>5:00 PM - 7:00 PM</span></div>
+                        </div>
+                        <div class="chef-special">
+                            🍷 Sunset Wine Tasting - $95 per person
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Ahy Hotel</h3>
+            <p>Experience luxury, comfort, and exceptional service at Ahy Hotel. Creating memorable experiences since 1999.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="rooms.html">Rooms & Suites</a></li>
+                <li><a href="dining.html">Fine Dining</a></li>
+                <li><a href="facilities.html">Amenities</a></li>
+                <li><a href="events.html">Events & Weddings</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p>📍 Next to Franko Kidanemhret Meat House</p>
+            <p>📞 +251980333330 / +251980206065</p>
+            <p>✉️ info@ahyhotel.com</p>
+            <p>🌐 www.ahyhotel.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Ahy Hotel. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </div>
+</footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>

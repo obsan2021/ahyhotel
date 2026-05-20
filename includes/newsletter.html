@@ -1,0 +1,18 @@
+﻿<div class="newsletter-section">
+    <div class="newsletter-container">
+        <h3>Subscribe to Our Newsletter</h3>
+        <p>Get exclusive offers and updates directly in your inbox</p>
+        <form id="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn">Subscribe</button>
+        </form>
+    </div>
+</div>
+<script>
+document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = this.querySelector('input[type="email"]').value;
+    alert(`Thank you for subscribing with ${email}!`);
+    this.reset();
+});
+</script>

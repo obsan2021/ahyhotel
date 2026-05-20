@@ -1,0 +1,60 @@
+﻿/* Responsive Styles */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 20px;
+    }
+}
+@media (max-width: 992px) {
+    .room-grid,
+    .facility-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        padding: 2rem 0;
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+    .nav-toggle {
+        display: block;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .room-grid,
+    .facility-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+@media (max-width: 480px) {
+    .hero {
+        padding: 1rem;
+    }
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    .btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+}

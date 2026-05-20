@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahy Hotel - Extraordinary Events</title>
+    <meta name="description" content="Host your dream wedding or corporate event at Ahy Hotel">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            padding: 4rem 0;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .event-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .event-card:hover .event-image img {
+            transform: scale(1.1);
+        }
+        
+        .event-type {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .event-info {
+            padding: 2rem;
+        }
+        
+        .event-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .event-details {
+            margin: 1rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .venue-features {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .venue-features li {
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .inquiry-btn {
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">AHY HOTEL</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="dining.html">Dining</a></li>
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="events.html" class="active">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <a href="booking.html" class="btn">Book Now →</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Extraordinary Events</h1>
+            <p>Create unforgettable memories in our stunning venues</p>
+        </section>
+
+        <div class="container">
+            <div class="events-grid reveal">
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600" alt="Wedding Venue">
+                        <div class="event-type">Weddings & Celebrations</div>
+                    </div>
+                    <div class="event-info">
+                        <h3>Grand Ballroom</h3>
+                        <p>Our magnificent ballroom sets the stage for fairy-tale weddings and grand celebrations.</p>
+                        <div class="event-details">
+                            <strong>Capacity:</strong> Up to 500 guests<br>
+                            <strong>Package Includes:</strong> Catering, Decor, Bridal Suite
+                        </div>
+                        <ul class="venue-features">
+                            <li>✨ Crystal Chandeliers</li>
+                            <li>✨ Stage & AV Equipment</li>
+                            <li>✨ Wedding Coordinator</li>
+                            <li>✨ Custom Menus</li>
+                        </ul>
+                        <button class="btn inquiry-btn" onclick="alert('Our wedding specialist will contact you within 24 hours')">Inquire About Weddings →</button>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600" alt="Corporate Event">
+                        <div class="event-type">Corporate Events</div>
+                    </div>
+                    <div class="event-info">
+                        <h3>Executive Conference Center</h3>
+                        <p>State-of-the-art facilities for productive meetings and impressive conferences.</p>
+                        <div class="event-details">
+                            <strong>Capacity:</strong> 50-300 guests<br>
+                            <strong>Technology:</strong> 4K Screens, Video Conferencing
+                        </div>
+                        <ul class="venue-features">
+                            <li>💼 Breakout Rooms</li>
+                            <li>💼 Catering Services</li>
+                            <li>💼 Tech Support Team</li>
+                            <li>💼 Valet Parking</li>
+                        </ul>
+                        <button class="btn inquiry-btn" onclick="alert('Our events team will contact you shortly')">Corporate Inquiry →</button>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600" alt="Private Party">
+                        <div class="event-type">Private Celebrations</div>
+                    </div>
+                    <div class="event-info">
+                        <h3>Sky Lounge</h3>
+                        <p>Intimate rooftop venue perfect for birthdays, anniversaries, and private parties.</p>
+                        <div class="event-details">
+                            <strong>Capacity:</strong> Up to 100 guests<br>
+                            <strong>Minimum Spend:</strong> $2,500
+                        </div>
+                        <ul class="venue-features">
+                            <li>🎵 DJ & Dance Floor</li>
+                            <li>🎵 Open Bar Options</li>
+                            <li>🎵 Custom Decor</li>
+                            <li>🎵 City View Terrace</li>
+                        </ul>
+                        <button class="btn inquiry-btn" onclick="alert('Book your private celebration today!')">Book Your Party →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Ahy Hotel</h3>
+            <p>Experience luxury, comfort, and exceptional service at Ahy Hotel. Creating memorable experiences since 1999.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="rooms.html">Rooms & Suites</a></li>
+                <li><a href="dining.html">Fine Dining</a></li>
+                <li><a href="facilities.html">Amenities</a></li>
+                <li><a href="events.html">Events & Weddings</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p>📍 Next to Franko Kidanemhret Meat House</p>
+            <p>📞 +251980333330 / +251980206065</p>
+            <p>✉️ info@ahyhotel.com</p>
+            <p>🌐 www.ahyhotel.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Ahy Hotel. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </div>
+</footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>

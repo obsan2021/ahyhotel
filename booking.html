@@ -1,0 +1,683 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahy Hotel - Reserve Your Luxury Stay</title>
+    <meta name="description" content="Book your luxurious stay at Ahy Hotel. Experience unparalleled comfort and exceptional service.">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .booking-wrapper {
+            padding: 4rem 0;
+            background: var(--bg-light);
+        }
+        
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .booking-form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .booking-form-container h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .booking-form-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-family: inherit;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1);
+        }
+        
+        .booking-summary {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+        }
+        
+        .booking-summary h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+        
+        .summary-total {
+            border-top: 2px solid rgba(255,255,255,0.3);
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .calendar-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .calendar-container h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+        
+        /* Calendar Styles */
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .calendar-header button {
+            background: var(--primary-color);
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .calendar-header button:hover {
+            background: var(--accent-color);
+            transform: scale(1.05);
+        }
+        
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0;
+            background: var(--bg-light);
+            border-radius: 10px;
+        }
+        
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .calendar-day {
+            text-align: center;
+            padding: 0.75rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .calendar-day:hover:not(.empty) {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .calendar-day.available {
+            background: var(--bg-light);
+            cursor: pointer;
+        }
+        
+        .calendar-day.booked {
+            background: #ffebee;
+            color: #c62828;
+            cursor: not-allowed;
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+        
+        .calendar-day.today {
+            background: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .calendar-day.selected {
+            background: var(--accent-color);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .calendar-day.empty {
+            cursor: default;
+        }
+        
+        .booked-mark {
+            font-size: 0.7rem;
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        @media (max-width: 968px) {
+            .booking-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .booking-form-container,
+            .calendar-container {
+                padding: 1.5rem;
+            }
+            
+            .calendar-days {
+                gap: 0.25rem;
+            }
+            
+            .calendar-day {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">AHY HOTEL</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="dining.html">Dining</a></li>
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <a href="booking.html" class="btn">Book Now →</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Reserve Your Stay</h1>
+            <p>Secure your luxury experience at Ahy Hotel</p>
+        </section>
+
+        <div class="booking-wrapper">
+            <div class="booking-container">
+                <div class="booking-form-container reveal">
+                    <h2>Booking Details</h2>
+                    <form id="booking-form">
+                        <div class="form-group">
+                            <label for="check-in">📅 Check-in Date</label>
+                            <input type="date" id="check-in" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="check-out">📅 Check-out Date</label>
+                            <input type="date" id="check-out" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guests">👥 Number of Guests</label>
+                            <input type="number" id="guests" min="1" max="10" value="2" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="room-type">🛏️ Room Type</label>
+                            <select id="room-type" required>
+                                <option value="">Select a room</option>
+                            </select>
+                        </div>
+                        
+                        <div class="booking-summary">
+                            <h3>Booking Summary</h3>
+                            <div class="summary-item">
+                                <span>Room Type:</span>
+                                <span id="selected-room">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Number of Nights:</span>
+                                <span id="nights-count">0</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Price per Night:</span>
+                                <span id="price-per-night">₹0</span>
+                            </div>
+                            <div class="summary-total">
+                                <span>Total Amount:</span>
+                                <span id="total-price">₹0</span>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Confirm Booking →</button>
+                    </form>
+                </div>
+                
+                <div class="calendar-container reveal">
+                    <h3>Availability Calendar</h3>
+                    <div id="calendar"></div>
+                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted); text-align: center;">
+                        📌 Green dates are available | 🔴 Red dates are booked
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Ahy Hotel</h3>
+            <p>Experience luxury, comfort, and exceptional service at Ahy Hotel. Creating memorable experiences since 1999.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="rooms.html">Rooms & Suites</a></li>
+                <li><a href="dining.html">Fine Dining</a></li>
+                <li><a href="facilities.html">Amenities</a></li>
+                <li><a href="events.html">Events & Weddings</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p>📍 Next to Franko Kidanemhret Meat House</p>
+            <p>📞 +251980333330 / +251980206065</p>
+            <p>✉️ info@ahyhotel.com</p>
+            <p>🌐 www.ahyhotel.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Ahy Hotel. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </div>
+</footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script>
+        // Booking System Class
+        class EliteBookingSystem {
+            constructor() {
+                this.checkIn = null;
+                this.checkOut = null;
+                this.guests = 2;
+                this.roomType = '';
+                this.rooms = [];
+                this.bookedDates = ['2024-12-25', '2024-12-31', '2025-01-01'];
+                this.init();
+            }
+            
+            async init() {
+                await this.loadRooms();
+                this.setupDatePickers();
+                this.setupEventListeners();
+                this.renderCalendar();
+            }
+            
+            async loadRooms() {
+                try {
+                    const response = await fetch('data/rooms.json');
+                    const data = await response.json();
+                    this.rooms = data.rooms || [];
+                    this.populateRoomSelect();
+                } catch (error) {
+                    console.error('Error loading rooms:', error);
+                    // Fallback data
+                    this.rooms = [
+                        { type: 'standard', name: 'Standard Room', price: 5000 },
+                        { type: 'deluxe', name: 'Deluxe Room', price: 8000 },
+                        { type: 'executive', name: 'Executive Suite', price: 12000 },
+                        { type: 'family', name: 'Family Suite', price: 15000 }
+                    ];
+                    this.populateRoomSelect();
+                }
+            }
+            
+            populateRoomSelect() {
+                const roomSelect = document.getElementById('room-type');
+                if (roomSelect && this.rooms.length > 0) {
+                    roomSelect.innerHTML = '<option value="">Select a room</option>' + 
+                        this.rooms.map(room => 
+                            `<option value="${room.type}">${room.name} - ₹${room.price}/night</option>`
+                        ).join('');
+                }
+            }
+            
+            setupDatePickers() {
+                const today = new Date().toISOString().split('T')[0];
+                const checkInInput = document.getElementById('check-in');
+                const checkOutInput = document.getElementById('check-out');
+                
+                if (checkInInput) {
+                    checkInInput.min = today;
+                    checkInInput.addEventListener('change', (e) => {
+                        this.checkIn = e.target.value;
+                        if (checkOutInput) {
+                            checkOutInput.min = e.target.value;
+                        }
+                        this.updateSummary();
+                        this.renderCalendar();
+                    });
+                }
+                
+                if (checkOutInput) {
+                    checkOutInput.addEventListener('change', (e) => {
+                        this.checkOut = e.target.value;
+                        this.updateSummary();
+                    });
+                }
+            }
+            
+            setupEventListeners() {
+                const guestInput = document.getElementById('guests');
+                const roomSelect = document.getElementById('room-type');
+                
+                if (guestInput) {
+                    guestInput.addEventListener('change', (e) => {
+                        this.guests = parseInt(e.target.value);
+                        this.updateSummary();
+                    });
+                }
+                
+                if (roomSelect) {
+                    roomSelect.addEventListener('change', (e) => {
+                        this.roomType = e.target.value;
+                        this.updateSummary();
+                    });
+                }
+                
+                const bookingForm = document.getElementById('booking-form');
+                if (bookingForm) {
+                    bookingForm.addEventListener('submit', (e) => this.handleSubmit(e));
+                }
+            }
+            
+            calculateNights() {
+                if (!this.checkIn || !this.checkOut) return 0;
+                const start = new Date(this.checkIn);
+                const end = new Date(this.checkOut);
+                const diffTime = Math.abs(end - start);
+                return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            }
+            
+            getSelectedRoom() {
+                return this.rooms.find(room => room.type === this.roomType);
+            }
+            
+            updateSummary() {
+                const selectedRoom = this.getSelectedRoom();
+                const nights = this.calculateNights();
+                
+                const selectedRoomSpan = document.getElementById('selected-room');
+                const nightsSpan = document.getElementById('nights-count');
+                const pricePerNightSpan = document.getElementById('price-per-night');
+                const totalSpan = document.getElementById('total-price');
+                
+                if (selectedRoom) {
+                    if (selectedRoomSpan) selectedRoomSpan.textContent = selectedRoom.name;
+                    if (pricePerNightSpan) pricePerNightSpan.textContent = `₹${selectedRoom.price}`;
+                    
+                    const total = selectedRoom.price * nights;
+                    if (totalSpan) totalSpan.textContent = `₹${total.toLocaleString()}`;
+                } else {
+                    if (selectedRoomSpan) selectedRoomSpan.textContent = '-';
+                    if (pricePerNightSpan) pricePerNightSpan.textContent = '₹0';
+                    if (totalSpan) totalSpan.textContent = '₹0';
+                }
+                
+                if (nightsSpan) nightsSpan.textContent = nights;
+            }
+            
+            renderCalendar() {
+                const calendarContainer = document.getElementById('calendar');
+                if (!calendarContainer) return;
+                
+                const currentDate = new Date();
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth();
+                
+                const firstDay = new Date(year, month, 1);
+                const lastDay = new Date(year, month + 1, 0);
+                const daysInMonth = lastDay.getDate();
+                const startingDay = firstDay.getDay();
+                
+                const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                                   'July', 'August', 'September', 'October', 'November', 'December'];
+                
+                let calendarHTML = `
+                    <div class="calendar-header">
+                        <button class="prev-month" onclick="bookingSystem.prevMonth()">&lt;</button>
+                        <h4>${monthNames[month]} ${year}</h4>
+                        <button class="next-month" onclick="bookingSystem.nextMonth()">&gt;</button>
+                    </div>
+                    <div class="calendar-weekdays">
+                        <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div>
+                        <div>Thu</div><div>Fri</div><div>Sat</div>
+                    </div>
+                    <div class="calendar-days">
+                `;
+                
+                for (let i = 0; i < startingDay; i++) {
+                    calendarHTML += `<div class="calendar-day empty"></div>`;
+                }
+                
+                const today = new Date().toISOString().split('T')[0];
+                
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                    const isBooked = this.bookedDates.includes(dateString);
+                    const isToday = dateString === today;
+                    const isSelected = dateString === this.checkIn || dateString === this.checkOut;
+                    
+                    let statusClass = '';
+                    let clickHandler = '';
+                    
+                    if (!isBooked) {
+                        statusClass = 'available';
+                        clickHandler = `onclick="bookingSystem.selectDate('${dateString}')"`;
+                    } else {
+                        statusClass = 'booked';
+                    }
+                    
+                    calendarHTML += `
+                        <div class="calendar-day ${statusClass} ${isToday ? 'today' : ''} ${isSelected ? 'selected' : ''}"
+                             data-date="${dateString}" ${clickHandler}>
+                            ${day}
+                            ${isBooked ? '<span class="booked-mark">✕</span>' : ''}
+                        </div>
+                    `;
+                }
+                
+                calendarHTML += `</div>`;
+                calendarContainer.innerHTML = calendarHTML;
+            }
+            
+            selectDate(date) {
+                const checkInInput = document.getElementById('check-in');
+                const checkOutInput = document.getElementById('check-out');
+                
+                if (!checkInInput || !checkOutInput) return;
+                
+                if (!this.checkIn || (this.checkIn && this.checkOut)) {
+                    checkInInput.value = date;
+                    this.checkIn = date;
+                    checkOutInput.value = '';
+                    this.checkOut = null;
+                    checkOutInput.min = date;
+                } else if (this.checkIn && !this.checkOut) {
+                    if (date > this.checkIn) {
+                        checkOutInput.value = date;
+                        this.checkOut = date;
+                    } else {
+                        checkOutInput.value = this.checkIn;
+                        checkOutInput.min = date;
+                        checkInInput.value = date;
+                        this.checkOut = this.checkIn;
+                        this.checkIn = date;
+                    }
+                }
+                
+                this.updateSummary();
+                this.renderCalendar();
+                
+                // Trigger change events
+                checkInInput.dispatchEvent(new Event('change'));
+                checkOutInput.dispatchEvent(new Event('change'));
+            }
+            
+            prevMonth() {
+                // Implementation for month navigation
+                console.log('Previous month');
+                this.renderCalendar();
+            }
+            
+            nextMonth() {
+                // Implementation for month navigation
+                console.log('Next month');
+                this.renderCalendar();
+            }
+            
+            handleSubmit(e) {
+                e.preventDefault();
+                
+                if (!this.checkIn || !this.checkOut) {
+                    this.showMessage('Please select check-in and check-out dates', 'error');
+                    return;
+                }
+                
+                if (!this.roomType) {
+                    this.showMessage('Please select a room type', 'error');
+                    return;
+                }
+                
+                const selectedRoom = this.getSelectedRoom();
+                const nights = this.calculateNights();
+                const total = selectedRoom.price * nights;
+                
+                const bookingData = {
+                    checkIn: this.checkIn,
+                    checkOut: this.checkOut,
+                    guests: this.guests,
+                    roomType: selectedRoom.name,
+                    totalPrice: `₹${total.toLocaleString()}`,
+                    bookingDate: new Date().toISOString()
+                };
+                
+                localStorage.setItem('currentBooking', JSON.stringify(bookingData));
+                this.showMessage('✨ Booking confirmed! Check your email for details.', 'success');
+                
+                setTimeout(() => {
+                    window.location.href = 'confirmation.html';
+                }, 2000);
+            }
+            
+            showMessage(message, type) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message message-${type}`;
+                messageDiv.textContent = message;
+                messageDiv.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    right: 20px;
+                    padding: 1rem 2rem;
+                    background: ${type === 'success' ? '#4caf50' : '#f44336'};
+                    color: white;
+                    border-radius: 10px;
+                    z-index: 9999;
+                    animation: slideInRight 0.5s ease;
+                `;
+                
+                document.body.appendChild(messageDiv);
+                setTimeout(() => messageDiv.remove(), 5000);
+            }
+        }
+        
+        // Initialize booking system
+        let bookingSystem;
+        document.addEventListener('DOMContentLoaded', () => {
+            bookingSystem = new EliteBookingSystem();
+            
+            // Newsletter form
+            const newsletterForm = document.getElementById('footer-newsletter');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = newsletterForm.querySelector('input[type="email"]').value;
+                    alert(`Thank you for subscribing with ${email}! You'll receive our latest offers.`);
+                    newsletterForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

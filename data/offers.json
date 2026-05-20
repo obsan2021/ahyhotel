@@ -1,0 +1,28 @@
+﻿{
+    "offers": [
+        {
+            "id": 1,
+            "title": "Early Bird Discount",
+            "description": "Book 30 days in advance and get 20% off",
+            "discount": 20,
+            "code": "EARLY20",
+            "validUntil": "2025-03-31"
+        },
+        {
+            "id": 2,
+            "title": "Weekend Getaway",
+            "description": "Special rates for weekend stays",
+            "discount": 15,
+            "code": "WEEKEND15",
+            "validUntil": "2025-02-28"
+        },
+        {
+            "id": 3,
+            "title": "Corporate Package",
+            "description": "Business traveler special package",
+            "discount": 25,
+            "code": "CORP25",
+            "validUntil": "2025-12-31"
+        }
+    ]
+}

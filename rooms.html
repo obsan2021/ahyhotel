@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahy Hotel - Luxury Accommodations</title>
+    <meta name="description" content="Discover our luxurious rooms and suites at Ahy Hotel">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .rooms-header {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .room-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .room-detail-image {
+            height: 100%;
+            min-height: 400px;
+            overflow: hidden;
+        }
+        
+        .room-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .room-detail-content {
+            padding: 2rem;
+        }
+        
+        .room-detail-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .room-amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .amenity-tag {
+            background: var(--bg-light);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .room-price-large {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .room-detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">AHY HOTEL</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html" class="active">Rooms</a></li>
+                <li><a href="dining.html">Dining</a></li>
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <a href="booking.html" class="btn">Book Now →</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Luxury Accommodations</h1>
+            <p>Each room crafted for your comfort and pleasure</p>
+        </section>
+
+        <div class="container">
+            <div class="rooms-header reveal">
+                <h2>Choose Your Perfect Space</h2>
+                <p>Experience the epitome of luxury in our thoughtfully designed rooms</p>
+            </div>
+            
+            <div id="rooms-container"></div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Ahy Hotel</h3>
+            <p>Experience luxury, comfort, and exceptional service at Ahy Hotel. Creating memorable experiences since 1999.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="rooms.html">Rooms & Suites</a></li>
+                <li><a href="dining.html">Fine Dining</a></li>
+                <li><a href="facilities.html">Amenities</a></li>
+                <li><a href="events.html">Events & Weddings</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p>📍 Next to Franko Kidanemhret Meat House</p>
+            <p>📞 +251980333330 / +251980206065</p>
+            <p>✉️ info@ahyhotel.com</p>
+            <p>🌐 www.ahyhotel.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Ahy Hotel. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </div>
+</footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script>
+        // Load rooms dynamically
+        async function loadRooms() {
+            try {
+                const response = await fetch('data/rooms.json');
+                const data = await response.json();
+                const container = document.getElementById('rooms-container');
+                if (container && data.rooms) {
+                    container.innerHTML = data.rooms.map(room => `
+                        <div class="room-detail-grid reveal">
+                            <div class="room-detail-image">
+                                <img src="assets/images/rooms/${room.type}/${room.type}-room.jpg" 
+                                     alt="${room.name}"
+                                     onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600'">
+                            </div>
+                            <div class="room-detail-content">
+                                <h3>${room.name}</h3>
+                                <p>${room.description}</p>
+                                <div class="room-amenities">
+                                    ${room.amenities.map(a => `<span class="amenity-tag">✓ ${a}</span>`).join('')}
+                                </div>
+                                <div class="room-detail-info">
+                                    <p><strong>Size:</strong> ${room.size} | <strong>Bed:</strong> ${room.bed} | <strong>Capacity:</strong> ${room.capacity} guests</p>
+                                </div>
+                                <div class="room-price-large">₹${room.price} <small>/night</small></div>
+                                <a href="booking.html?room=${room.type}" class="btn">Book This Room →</a>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Error loading rooms:', error);
+                // Fallback content
+                document.getElementById('rooms-container').innerHTML = '<p style="text-align:center">Loading rooms...</p>';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadRooms);
+    </script>
+</body>
+</html>

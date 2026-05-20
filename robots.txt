@@ -1,0 +1,5 @@
+﻿User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /includes/
+Sitemap: https://www.ahyhotel.com/sitemap.xml

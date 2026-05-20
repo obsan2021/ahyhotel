@@ -1,0 +1,29 @@
+﻿/* Dark Mode Styles */
+body.dark-mode {
+    background: var(--bg-dark);
+    color: #f0f0f0;
+}
+body.dark-mode .main-header,
+body.dark-mode .room-card,
+body.dark-mode .facility-card {
+    background: #2d2d2d;
+    color: #f0f0f0;
+}
+body.dark-mode .nav-menu a {
+    color: #f0f0f0;
+}
+body.dark-mode .nav-menu a:hover {
+    color: var(--primary-color);
+}
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+/* Dark mode transition */
+body,
+body * {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

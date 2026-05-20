@@ -1,0 +1,52 @@
+﻿{
+    "rooms": [
+        {
+            "id": 1,
+            "type": "standard",
+            "name": "Standard Room",
+            "price": 5000,
+            "capacity": 2,
+            "size": "25 sqm",
+            "bed": "Queen Bed",
+            "amenities": ["WiFi", "TV", "AC", "Mini Bar"],
+            "description": "Comfortable standard room with modern amenities",
+            "image": "assets/images/rooms/standard/standard-room.jpg"
+        },
+        {
+            "id": 2,
+            "type": "deluxe",
+            "name": "Deluxe Room",
+            "price": 8000,
+            "capacity": 3,
+            "size": "35 sqm",
+            "bed": "King Bed",
+            "amenities": ["WiFi", "TV", "AC", "Mini Bar", "Bathtub", "City View"],
+            "description": "Spacious deluxe room with premium amenities",
+            "image": "assets/images/rooms/deluxe/deluxe-room.jpg"
+        },
+        {
+            "id": 3,
+            "type": "executive",
+            "name": "Executive Suite",
+            "price": 12000,
+            "capacity": 4,
+            "size": "50 sqm",
+            "bed": "King Bed + Sofa",
+            "amenities": ["WiFi", "TV", "AC", "Mini Bar", "Bathtub", "City View", "Work Desk", "Living Area"],
+            "description": "Luxury suite for business travelers",
+            "image": "assets/images/rooms/executive/executive-suite.jpg"
+        },
+        {
+            "id": 4,
+            "type": "family",
+            "name": "Family Suite",
+            "price": 15000,
+            "capacity": 6,
+            "size": "65 sqm",
+            "bed": "2 King Beds",
+            "amenities": ["WiFi", "TV", "AC", "Mini Bar", "Bathtub", "City View", "Kitchen", "Dining Area"],
+            "description": "Perfect for families with children",
+            "image": "assets/images/rooms/family/family-suite.jpg"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+﻿{
+    "testimonials": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "location": "New York, USA",
+            "rating": 5,
+            "comment": "Amazing hotel with excellent service! The staff was very friendly and helpful.",
+            "image": "assets/images/team/avatar1.jpg",
+            "date": "2024-11-15"
+        },
+        {
+            "id": 2,
+            "name": "Sarah Johnson",
+            "location": "London, UK",
+            "rating": 5,
+            "comment": "Beautiful rooms, great location, and wonderful amenities. Highly recommend!",
+            "image": "assets/images/team/avatar2.jpg",
+            "date": "2024-11-10"
+        },
+        {
+            "id": 3,
+            "name": "Raj Patel",
+            "location": "Mumbai, India",
+            "rating": 5,
+            "comment": "Best hotel experience I've ever had. The food was exceptional!",
+            "image": "assets/images/team/avatar3.jpg",
+            "date": "2024-11-05"
+        }
+    ]
+}

@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahy Hotel - World-Class Facilities</title>
+    <meta name="description" content="Experience our premium facilities including spa, pool, and fitness center">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            padding: 4rem 0;
+        }
+        
+        .facility-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .facility-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .facility-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .facility-card:hover .facility-image img {
+            transform: scale(1.1);
+        }
+        
+        .facility-info {
+            padding: 2rem;
+        }
+        
+        .facility-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .facility-features {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .facility-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .facility-features li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .facility-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">AHY HOTEL</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="dining.html">Dining</a></li>
+                <li><a href="facilities.html" class="active">Facilities</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <a href="booking.html" class="btn">Book Now →</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>World-Class Facilities</h1>
+            <p>Indulge in unparalleled luxury and wellness</p>
+        </section>
+
+        <div class="container">
+            <div class="facility-grid reveal">
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600" alt="Luxury Spa">
+                    </div>
+                    <div class="facility-info">
+                        <h3>The Royal Spa</h3>
+                        <p>Award-winning spa offering holistic treatments and ancient healing techniques.</p>
+                        <ul class="facility-features">
+                            <li>7 Treatment Rooms</li>
+                            <li>Traditional Hammam</li>
+                            <li>Infrared Sauna</li>
+                            <li>Jacuzzi & Steam Room</li>
+                            <li>Couples Suites Available</li>
+                        </ul>
+                        <div class="price-tag">Signature Treatment from $150</div>
+                    </div>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600" alt="Fitness Center">
+                    </div>
+                    <div class="facility-info">
+                        <h3>Zenith Fitness</h3>
+                        <p>State-of-the-art fitness center with panoramic city views.</p>
+                        <ul class="facility-features">
+                            <li>24/7 Access</li>
+                            <li>Personal Trainers Available</li>
+                            <li>Yoga & Pilates Studio</li>
+                            <li>Technogym Equipment</li>
+                            <li>Indoor Heated Pool</li>
+                        </ul>
+                        <div class="price-tag">Complimentary for Hotel Guests</div>
+                    </div>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600" alt="Infinity Pool">
+                    </div>
+                    <div class="facility-info">
+                        <h3>Infinity Pool</h3>
+                        <p>Rooftop infinity pool overlooking the city skyline.</p>
+                        <ul class="facility-features">
+                            <li>Heated Year-Round</li>
+                            <li>Poolside Bar & Lounge</li>
+                            <li>Private Cabanas</li>
+                            <li>Sunset Yoga Sessions</li>
+                            <li>Evening DJ Events</li>
+                        </ul>
+                        <div class="price-tag">Day Pass from $75</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Ahy Hotel</h3>
+            <p>Experience luxury, comfort, and exceptional service at Ahy Hotel. Creating memorable experiences since 1999.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="rooms.html">Rooms & Suites</a></li>
+                <li><a href="dining.html">Fine Dining</a></li>
+                <li><a href="facilities.html">Amenities</a></li>
+                <li><a href="events.html">Events & Weddings</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p>📍 Next to Franko Kidanemhret Meat House</p>
+            <p>📞 +251980333330 / +251980206065</p>
+            <p>✉️ info@ahyhotel.com</p>
+            <p>🌐 www.ahyhotel.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Ahy Hotel. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </div>
+</footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahy Hotel - Exclusive Offers</title>
+    <meta name="description" content="Discover exclusive offers and packages at Ahy Hotel">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .offers-header {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .offers-header h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem 0 4rem;
+        }
+        
+        .package-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            z-index: 1;
+        }
+        
+        .package-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .package-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .package-card:hover .package-image img {
+            transform: scale(1.1);
+        }
+        
+        .package-content {
+            padding: 2rem;
+        }
+        
+        .package-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .package-price {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .package-price small {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .package-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .package-features li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .terms {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 768px) {
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">AHY HOTEL</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="dining.html">Dining</a></li>
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="offers.html" class="active">Offers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <a href="booking.html" class="btn">Book Now →</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Exclusive Offers</h1>
+            <p>Experience luxury at exceptional value</p>
+        </section>
+
+        <div class="container">
+            <div class="offers-header reveal">
+                <h2>Limited Time Packages</h2>
+                <p>Book directly to enjoy these exclusive benefits</p>
+            </div>
+            
+            <div class="package-grid reveal">
+                <div class="package-card">
+                    <div class="package-badge">Early Bird</div>
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" alt="Early Bird Package">
+                    </div>
+                    <div class="package-content">
+                        <h3>Early Bird Special</h3>
+                        <div class="package-price">$299 <small>/night</small></div>
+                        <p>Book 30 days in advance and save big on your luxury stay</p>
+                        <ul class="package-features">
+                            <li>20% Best Available Rate</li>
+                            <li>Daily Breakfast Included</li>
+                            <li>Room Upgrade (subject to availability)</li>
+                            <li>Late Check-out until 2 PM</li>
+                        </ul>
+                        <a href="booking.html" class="btn" style="width: 100%; text-align: center;">Book Now →</a>
+                        <div class="terms">*Terms and conditions apply. Valid for bookings until March 31, 2025</div>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-badge">Most Popular</div>
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600" alt="Spa Package">
+                    </div>
+                    <div class="package-content">
+                        <h3>Spa & Wellness Retreat</h3>
+                        <div class="package-price">$499 <small>/night</small></div>
+                        <p>Rejuvenate your mind, body, and soul with our wellness package</p>
+                        <ul class="package-features">
+                            <li>Deluxe Room Accommodation</li>
+                            <li>60-min Signature Massage</li>
+                            <li>Access to Thermal Suite</li>
+                            <li>Healthy Breakfast Buffet</li>
+                            <li>Yoga Session Included</li>
+                        </ul>
+                        <a href="booking.html" class="btn" style="width: 100%; text-align: center;">Book Now →</a>
+                        <div class="terms">*Minimum 2 nights stay required</div>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-badge">Best Value</div>
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600" alt="Romance Package">
+                    </div>
+                    <div class="package-content">
+                        <h3>Romance Getaway</h3>
+                        <div class="package-price">$599 <small>/night</small></div>
+                        <p>Create unforgettable memories with your loved one</p>
+                        <ul class="package-features">
+                            <li>Executive Suite Accommodation</li>
+                            <li>Champagne & Strawberries on Arrival</li>
+                            <li>Candlelight Dinner for Two</li>
+                            <li>Couples Spa Treatment</li>
+                            <li>Late Check-out (4 PM)</li>
+                        </ul>
+                        <a href="booking.html" class="btn" style="width: 100%; text-align: center;">Book Now →</a>
+                        <div class="terms">*Valid for stays until December 31, 2025</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Ahy Hotel</h3>
+            <p>Experience luxury, comfort, and exceptional service at Ahy Hotel. Creating memorable experiences since 1999.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="rooms.html">Rooms & Suites</a></li>
+                <li><a href="dining.html">Fine Dining</a></li>
+                <li><a href="facilities.html">Amenities</a></li>
+                <li><a href="events.html">Events & Weddings</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p>📍 Next to Franko Kidanemhret Meat House</p>
+            <p>📞 +251980333330 / +251980206065</p>
+            <p>✉️ info@ahyhotel.com</p>
+            <p>🌐 www.ahyhotel.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Ahy Hotel. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </div>
+</footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>
